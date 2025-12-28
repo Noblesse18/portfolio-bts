@@ -1,6 +1,6 @@
-import React from "react";
 import Hero from "./section/Hero";
 import Navbar from "./component/Navbar";
+import Footer from "./component/Footer";
 import About from "./section/About";
 import Skill from "./section/Skill";
 import Parcours from "./section/Parcours";
@@ -19,6 +19,7 @@ function App() {
       <Projet />
       <Veille />
       <Contact />
+      <Footer />
     </main>
   );
 }

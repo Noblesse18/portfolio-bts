@@ -1,95 +1,188 @@
-import React from "react";
-
 const About = () => {
   return (
-    <>
-      {/* ABOUT */}
-      <section id="About" className=" py-10">
-        <h2 className="text-3xl text-orange-400 text-center mb-10">
-          À propos de moi
-        </h2>
+    <section id="about" className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* En-tête de section */}
+        <div className="text-center mb-16">
+          <h2 className="section-title">👤 À propos de moi</h2>
+          <p className="mt-6 text-slate-400 max-w-2xl mx-auto">
+            Découvrez mon parcours, ma formation et mes aspirations
+            professionnelles.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-2 gap-10 px-10">
-          <div className="flex items-center justify-center text-6xl">icon</div>
+        {/* Présentation personnelle */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* Avatar / Illustration */}
+          <div className="flex justify-center">
+            <div className="relative">
+              {/* Cercle décoratif */}
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent rounded-full blur-3xl" />
 
-          <div>
-            <h3 className="text-2xl mb-4">Présentation</h3>
-            <p className="text-lg">
-              Salut, moi c&apos;est Narayanasamy COMARAVEL.
+              {/* Avatar placeholder */}
+              <div className="relative w-64 h-64 rounded-full glass flex items-center justify-center glow-orange">
+                <span className="text-8xl">👨‍💻</span>
+              </div>
+
+              {/* Badges flottants */}
+              <div className="absolute -top-4 -right-4 px-4 py-2 rounded-full glass text-sm animate-float">
+                💻 Full Stack
+              </div>
+              <div
+                className="absolute -bottom-4 -left-4 px-4 py-2 rounded-full glass text-sm animate-float"
+                style={{ animationDelay: "-2s" }}
+              >
+                🎓 BTS SIO
+              </div>
+            </div>
+          </div>
+
+          {/* Texte de présentation */}
+          <div className="space-y-6">
+            <h3 className="text-3xl font-bold text-white">
+              Salut, moi c&apos;est{" "}
+              <span className="text-orange-400">Narayanasamy</span> !
+            </h3>
+
+            <p className="text-lg text-slate-300 leading-relaxed">
+              Étudiant passionné en BTS SIO option SLAM, je me spécialise dans
+              le développement d&apos;applications web modernes. Mon objectif
+              est de créer des solutions innovantes et performantes.
             </p>
+
+            <p className="text-slate-400 leading-relaxed">
+              Actuellement à la recherche d&apos;une alternance, je suis motivé
+              à apprendre et à contribuer au sein d&apos;une équipe dynamique.
+              Ma curiosité et ma rigueur me poussent à toujours améliorer mes
+              compétences.
+            </p>
+
+            {/* Stats rapides */}
+            <div className="grid grid-cols-3 gap-4 pt-6">
+              <div className="text-center p-4 rounded-xl glass">
+                <div className="text-3xl font-bold text-orange-400">2</div>
+                <div className="text-sm text-slate-400">Années BTS</div>
+              </div>
+              <div className="text-center p-4 rounded-xl glass">
+                <div className="text-3xl font-bold text-orange-400">5+</div>
+                <div className="text-sm text-slate-400">Projets</div>
+              </div>
+              <div className="text-center p-4 rounded-xl glass">
+                <div className="text-3xl font-bold text-orange-400">2</div>
+                <div className="text-sm text-slate-400">Stages</div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* BTS SIO */}
-      <section className=" py-10 mt-10">
-        <h2 className="text-3xl text-center mb-8">
-          Qu’est-ce que le BTS SIO ?
-        </h2>
-
-        <p className="text-2xl px-10 mb-10">
-          Le Brevet de Technicien Supérieur aux Services Informatiques aux
-          Organisations (BTS SIO) forme en deux ans aux métiers de
-          l’informatique, notamment administrateur réseau ou développeur, avec
-          une insertion professionnelle ou une poursuite d’études.
-        </p>
-
-        <h3 className="text-center text-2xl mb-6">Options du BTS SIO</h3>
-
-        <div className="grid grid-cols-2 gap-8 px-10">
-          {/* SISR */}
-          <div
-            className="border-2 border-amber-700 p-6 rounded-xl min-h-[520px] transition-transform duration-300
-                 hover:scale-110 hover:-translate-y-1"
-          >
-            <h4 className="text-3xl text-center mb-4">SISR</h4>
-            <p className="text-xl text-center">
-              L’option SISR forme des professionnels capables de concevoir,
-              installer, administrer et sécuriser des infrastructures
-              informatiques (réseaux, serveurs, cybersécurité).
+        {/* Section BTS SIO */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              🎓 Qu&apos;est-ce que le BTS SIO ?
+            </h3>
+            <p className="text-slate-400 max-w-3xl mx-auto">
+              Le Brevet de Technicien Supérieur aux Services Informatiques aux
+              Organisations forme en deux ans aux métiers de
+              l&apos;informatique, avec une insertion professionnelle rapide ou
+              une poursuite d&apos;études.
             </p>
-            <br />
-            <p className="text-xl text-center p-5">Debauché:</p>
-            <br />
-            <ul className="text-xl list-disc list-inside space-y-1t">
-              <li>Administrateur systèmes et réseaux</li>
-              <li>Informaticien support et déploiement </li>
-              <li>Pilote d’exploitation </li>
-              <li>Support systèmes et réseaux</li>
-              <li>Technicien d’infrastructure</li>
-              <li>Technicien de production</li>
-              <li>Technicien micro et réseaux</li>
-            </ul>
           </div>
 
-          {/* SLAM */}
-          <div
-            className=" border-2 border-amber-700 p-6 rounded-xl min-h-[520px] transition-transform duration-300
-                 hover:scale-110 hover:-translate-y-1"
-          >
-            <h4 className="text-3xl text-center mb-4">SLAM</h4>
-            <p className="text-xl text-center">
-              L’option SLAM est orientée vers le développement d’applications
-              (web, mobiles, métiers), la gestion de bases de données et la
-              maintenance des solutions logicielles.
-            </p>
-            <br />
-            <p className="text-xl text-center p-5 font-semibold">Debauché:</p>
-            <br />
-            <ul className="text-xl list-disc list-inside space-y-1">
-              <li>Développeur d’applications informatiques</li>
-              <li>Développeur informatique</li>
-              <li>Analyste d’applications ou d’études</li>
-              <li>Analyste programmeur</li>
-              <li>Programmeur analyste</li>
-              <li>Programmeur d’applications</li>
-              <li>Responsable des services applicatifs</li>
-              <li>Technicien d’études informatiques</li>
-            </ul>
+          {/* Cartes SISR / SLAM */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* SISR */}
+            <div className="card group hover:border-blue-500/30">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                  🌐
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-white">Option SISR</h4>
+                  <p className="text-sm text-blue-400">
+                    Solutions d&apos;Infrastructure
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-slate-400 mb-6">
+                Formation axée sur la conception, l&apos;installation,
+                l&apos;administration et la sécurisation des infrastructures
+                informatiques.
+              </p>
+
+              <div className="space-y-2">
+                <p className="text-sm font-semibold text-slate-300">
+                  Débouchés :
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Admin Réseaux",
+                    "Technicien Infra",
+                    "Support IT",
+                    "DevOps",
+                  ].map((job) => (
+                    <span
+                      key={job}
+                      className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20"
+                    >
+                      {job}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* SLAM */}
+            <div className="card group hover:border-orange-500/30 relative overflow-hidden">
+              {/* Badge "Mon option" */}
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-semibold border border-orange-500/30">
+                ⭐ Mon option
+              </div>
+
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                  💻
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-white">Option SLAM</h4>
+                  <p className="text-sm text-orange-400">
+                    Solutions Logicielles
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-slate-400 mb-6">
+                Formation orientée développement d&apos;applications web,
+                mobiles et métiers, gestion de bases de données et maintenance
+                logicielle.
+              </p>
+
+              <div className="space-y-2">
+                <p className="text-sm font-semibold text-slate-300">
+                  Débouchés :
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Développeur Web",
+                    "Développeur Mobile",
+                    "Analyste",
+                    "Full Stack",
+                  ].map((job) => (
+                    <span
+                      key={job}
+                      className="px-3 py-1 text-xs rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20"
+                    >
+                      {job}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
