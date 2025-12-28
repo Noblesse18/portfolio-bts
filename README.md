@@ -153,4 +153,3 @@ Ce projet est sous licence MIT. Vous êtes libre de l'utiliser et de le modifier
 
 ---
 
-⭐ Si ce projet vous a aidé, n'hésitez pas à lui donner une étoile sur GitHub !
