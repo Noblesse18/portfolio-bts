@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-title Portfolio BTS SIO Launcher
+title Portfolio BTS SIO
 
 echo.
 echo ╔════════════════════════════════════════╗
@@ -19,15 +19,8 @@ if %ERRORLEVEL% NEQ 0 (
 :: Vérification des dépendances
 echo 📦 Vérification des dépendances...
 
-if not exist "backend\node_modules" (
-    echo 📥 Installation des dépendances backend...
-    cd backend
-    call npm install
-    cd ..
-)
-
 if not exist "frontend\node_modules" (
-    echo 📥 Installation des dépendances frontend...
+    echo 📥 Installation des dépendances...
     cd frontend
     call npm install
     cd ..
@@ -36,28 +29,22 @@ if not exist "frontend\node_modules" (
 echo ✅ Dépendances vérifiées.
 echo.
 
-:: Démarrage du Backend dans une nouvelle fenêtre
-echo 🔧 Démarrage du Backend (port 3001)...
-start "Backend - Portfolio BTS" cmd /k "cd backend && npm start"
-
-:: Attendre un peu
-timeout /t 2 /nobreak >nul
-
-:: Démarrage du Frontend dans une nouvelle fenêtre
-echo 🎨 Démarrage du Frontend (port 5173)...
-start "Frontend - Portfolio BTS" cmd /k "cd frontend && npm run dev"
+:: Démarrage du Frontend
+echo 🎨 Démarrage du serveur de développement...
+cd frontend
+start "Portfolio BTS SIO" cmd /k "npm run dev"
+cd ..
 
 :: Attendre un peu
 timeout /t 3 /nobreak >nul
 
 echo.
 echo ╔════════════════════════════════════════╗
-echo ║       ✅ Serveurs démarrés !           ║
+echo ║       ✅ Serveur démarré !             ║
 echo ╠════════════════════════════════════════╣
-echo ║  🎨 Frontend: http://localhost:5173    ║
-echo ║  🔧 Backend:  http://localhost:3001    ║
+echo ║  🌐 URL: http://localhost:5173         ║
 echo ╠════════════════════════════════════════╣
-echo ║  Fermez les fenêtres pour arrêter      ║
+echo ║  Fermez la fenêtre pour arrêter        ║
 echo ╚════════════════════════════════════════╝
 echo.
 
@@ -65,6 +52,5 @@ echo.
 timeout /t 2 /nobreak >nul
 start http://localhost:5173
 
-echo Appuyez sur une touche pour fermer ce terminal...
+echo Appuyez sur une touche pour fermer...
 pause >nul
-

@@ -5,10 +5,10 @@
 # ===========================================
 
 # Couleurs pour le terminal
-RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
+RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}"
@@ -19,10 +19,9 @@ echo -e "${NC}"
 
 # Fonction pour arrêter les processus à la fermeture
 cleanup() {
-    echo -e "\n${YELLOW}⏹️  Arrêt des serveurs...${NC}"
-    kill $BACKEND_PID 2>/dev/null
+    echo -e "\n${YELLOW}⏹️  Arrêt du serveur...${NC}"
     kill $FRONTEND_PID 2>/dev/null
-    echo -e "${GREEN}✅ Serveurs arrêtés proprement.${NC}"
+    echo -e "${GREEN}✅ Serveur arrêté proprement.${NC}"
     exit 0
 }
 
@@ -35,60 +34,35 @@ if ! command -v node &> /dev/null; then
     exit 1
 fi
 
-# Vérifier si npm est installé
-if ! command -v npm &> /dev/null; then
-    echo -e "${RED}❌ npm n'est pas installé. Veuillez l'installer.${NC}"
-    exit 1
-fi
-
 # Installation des dépendances si nécessaire
 echo -e "${YELLOW}📦 Vérification des dépendances...${NC}"
 
-# Backend
-if [ ! -d "backend/node_modules" ]; then
-    echo -e "${YELLOW}📥 Installation des dépendances backend...${NC}"
-    cd backend && npm install && cd ..
-fi
-
-# Frontend
 if [ ! -d "frontend/node_modules" ]; then
-    echo -e "${YELLOW}📥 Installation des dépendances frontend...${NC}"
+    echo -e "${YELLOW}📥 Installation des dépendances...${NC}"
     cd frontend && npm install && cd ..
 fi
 
 echo -e "${GREEN}✅ Dépendances vérifiées.${NC}\n"
 
-# Démarrage du Backend
-echo -e "${BLUE}🔧 Démarrage du Backend (port 3001)...${NC}"
-cd backend
-npm start &
-BACKEND_PID=$!
-cd ..
-
-# Attendre un peu que le backend démarre
-sleep 2
-
 # Démarrage du Frontend
-echo -e "${BLUE}🎨 Démarrage du Frontend (port 5173)...${NC}"
+echo -e "${BLUE}🎨 Démarrage du serveur de développement...${NC}"
 cd frontend
 npm run dev &
 FRONTEND_PID=$!
 cd ..
 
-# Attendre un peu que le frontend démarre
+# Attendre que le serveur démarre
 sleep 3
 
 echo -e "\n${GREEN}"
 echo "╔════════════════════════════════════════╗"
-echo "║       ✅ Serveurs démarrés !           ║"
+echo "║       ✅ Serveur démarré !             ║"
 echo "╠════════════════════════════════════════╣"
-echo "║  🎨 Frontend: http://localhost:5173    ║"
-echo "║  🔧 Backend:  http://localhost:3001    ║"
+echo "║  🌐 URL: http://localhost:5173         ║"
 echo "╠════════════════════════════════════════╣"
 echo "║  Appuyez sur Ctrl+C pour arrêter       ║"
 echo "╚════════════════════════════════════════╝"
 echo -e "${NC}"
 
-# Attendre que les processus se terminent
-wait $BACKEND_PID $FRONTEND_PID
-
+# Attendre que le processus se termine
+wait $FRONTEND_PID
