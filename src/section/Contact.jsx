@@ -59,11 +59,23 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulation d'envoi (à remplacer par votre logique d'envoi réelle)
+    const formData = new FormData(e.target);
+    formData.append("access_key", "d9b71c53-bdaa-4b3b-bd40-073a7e4db3d0");
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setSubmitStatus("success");
-      e.target.reset();
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        e.target.reset();
+      } else {
+        setSubmitStatus("error");
+      }
     } catch (error) {
       setSubmitStatus("error");
     } finally {
