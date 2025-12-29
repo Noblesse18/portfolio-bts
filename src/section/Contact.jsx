@@ -1,26 +1,5 @@
 import { useState } from "react";
-
-// Informations de contact
-const CONTACT_INFO = [
-  {
-    icon: "📧",
-    label: "Email",
-    value: "contact@exemple.com",
-    href: "mailto:contact@exemple.com",
-  },
-  {
-    icon: "💼",
-    label: "LinkedIn",
-    value: "linkedin.com/in/votre-profil",
-    href: "https://linkedin.com/in/votre-profil",
-  },
-  {
-    icon: "🐙",
-    label: "GitHub",
-    value: "github.com/votre-profil",
-    href: "https://github.com/votre-profil",
-  },
-];
+import { contactInfo } from "../constants";
 
 // Composant pour les informations de contact
 const ContactInfo = ({ icon, label, value, href }) => (
@@ -116,7 +95,7 @@ const Contact = () => {
             </h3>
 
             <div className="space-y-4">
-              {CONTACT_INFO.map((info) => (
+              {contactInfo.map((info) => (
                 <ContactInfo key={info.label} {...info} />
               ))}
             </div>

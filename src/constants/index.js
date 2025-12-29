@@ -55,7 +55,7 @@ export const jobs = [
     technologies: [
       "React",
       "Node.js",
-      "CSS",
+      "Tailwindcss",
       "API REST",
       "Mongodb",
       "Websocket",
@@ -86,8 +86,8 @@ export const projets = [
       "Mon portfolio personnel présentant mon parcours, mes compétences et mes projets réalisés durant ma formation BTS SIO option SLAM.",
     categorie: "web",
     icon: "🎨",
-    technologies: ["React", "Tailwind CSS", "Vite"],
-    github: "https://github.com/",
+    technologies: ["React", "Tailwindcss", "Vite", "Javascript"],
+    github: "https://noblesse18.github.io/portfolio-bts/",
     demo: "#",
   },
   {
@@ -105,16 +105,14 @@ export const projets = [
       "Contribution au développement du site de mise en relation entre stylistes et marques de mode. Amélioration des composants et de l'UX.",
     categorie: "web",
     icon: "👗",
-    technologies: ["React", "Node.js", "CSS"],
-  },
-  {
-    titre: "Gestion de Stock",
-    description:
-      "Application de gestion de stock développée en C# avec Entity Framework. Interface moderne et fonctionnalités CRUD complètes.",
-    categorie: "other",
-    icon: "📦",
-    technologies: ["C#", ".NET", "Entity Framework", "SQL Server"],
-    github: "https://github.com/",
+    technologies: [
+      "React",
+      "Node.js",
+      "tailwindcss",
+      "MongoDB",
+      "Python",
+      "Javascript",
+    ],
   },
 ];
 
