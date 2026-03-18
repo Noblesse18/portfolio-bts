@@ -21,10 +21,19 @@ export const skills = [
     icon: "./assets/tailwindcss.svg",
     category: "frontend",
   },
+  { name: "Next.js", icon: "./assets/next-js-svgrepo-com.svg", category: "frontend" },
+  { name: "TypeScript", icon: "./assets/typescript-official-svgrepo-com.svg", category: "frontend" },
+  { name: "Flutter", icon: "./assets/flutter-svgrepo-com.svg", category: "frontend" },
+
+  // Mobile
+  { name: "React Native", icon: "./assets/react.svg", category: "frontend" },
+  { name: "Expo", icon: "./assets/expo.svg", category: "frontend" },
 
   // Backend
   { name: "PHP", icon: "./assets/php.svg", category: "backend" },
   { name: "Node.js", icon: "./assets/nodejs.svg", category: "backend" },
+  { name: "Express.js", icon: "./assets/nodejs.svg", category: "backend" },
+  { name: "FastAPI", icon: "./assets/fastapi-svgrepo-com.svg", category: "backend" },
   { name: "MySQL", icon: "./assets/mysql.svg", category: "backend" },
   { name: "MongoDB", icon: "./assets/mongodb.svg", category: "backend" },
 
@@ -35,6 +44,8 @@ export const skills = [
   { name: "Docker", icon: "./assets/docker.svg", category: "tools" },
   { name: "Linux", icon: "./assets/linux.svg", category: "tools" },
   { name: "VirtualBox", icon: "./assets/virtualbox.svg", category: "tools" },
+  { name: "Kubernetes", icon: "./assets/kubernetes-svgrepo-com.svg", category: "tools" },
+  { name: "Vite", icon: "./assets/vitejs.svg", category: "tools" },
   { name: "Ansible", icon: "./assets/ansible.svg", category: "tools" },
   { name: "Azure", icon: "./assets/azure.svg", category: "tools" },
   { name: "AWS", icon: "./assets/aws.svg", category: "tools" },
