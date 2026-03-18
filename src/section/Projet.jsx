@@ -50,6 +50,16 @@ const ProjectCard = ({ projet }) => {
                 🐙 GitHub
               </a>
             )}
+            {projet.site && (
+              <a
+                href={projet.site}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-lg bg-orange-500 hover:bg-orange-600 transition-colors text-sm text-white"
+              >
+                🌐 Site
+              </a>
+            )}
             {projet.demo && (
               <a
                 href={projet.demo}

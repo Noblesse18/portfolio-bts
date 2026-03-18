@@ -41,6 +41,7 @@ const Footer = () => {
                 { href: "#skills", label: "Compétences" },
                 { href: "#parcours", label: "Parcours" },
                 { href: "#projets", label: "Projets" },
+                { href: "#epreuve-e4", label: "Épreuve E4" },
                 { href: "#veille", label: "Veille" },
                 { href: "#contact", label: "Contact" },
               ].map((link) => (

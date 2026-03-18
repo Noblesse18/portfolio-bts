@@ -6,6 +6,7 @@ const NAV_ITEMS = [
   { href: "#skills", label: "Compétences", icon: "⚡" },
   { href: "#parcours", label: "Parcours", icon: "📚" },
   { href: "#projets", label: "Projets", icon: "💼" },
+  { href: "#epreuve-e4", label: "Épreuve E4", mobileLabel: "E4", icon: "📋" },
   { href: "#veille", label: "Veille", icon: "📰" },
   { href: "#contact", label: "Contact", icon: "✉️" },
 ];
@@ -25,7 +26,7 @@ const NavLink = ({ href, children, onClick, isActive }) => (
   </a>
 );
 
-const MobileNavLink = ({ href, label, icon, onClick, isActive }) => (
+const MobileNavLink = ({ href, label, mobileLabel, icon, onClick, isActive }) => (
   <a
     href={href}
     onClick={onClick}
@@ -37,7 +38,7 @@ const MobileNavLink = ({ href, label, icon, onClick, isActive }) => (
       }`}
   >
     <span className="text-xl">{icon}</span>
-    <span className="font-medium">{label}</span>
+    <span className="font-medium">{mobileLabel || label}</span>
   </a>
 );
 
@@ -174,7 +175,7 @@ const Navbar = () => {
           <div className="absolute bottom-8 left-6 right-6">
             <div className="flex justify-center gap-4 pt-6 border-t border-white/10">
               <a
-                href="https://github.com"
+                href="https://github.com/Noblesse18"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-orange-500/20 transition-colors"
@@ -182,7 +183,7 @@ const Navbar = () => {
                 🐙
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/narayanasamy-comaravel-28b66232a/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-orange-500/20 transition-colors"
@@ -190,7 +191,7 @@ const Navbar = () => {
                 💼
               </a>
               <a
-                href="mailto:contact@exemple.com"
+                href="mailto:comaravel.narayanasamy@gmail.com"
                 className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-orange-500/20 transition-colors"
               >
                 📧

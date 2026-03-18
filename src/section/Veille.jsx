@@ -37,12 +37,12 @@ const NewsCard = ({ title, link, pubDate, source, icon, description }) => {
   };
 
   return (
-    <a href={link} target="_blank" rel="noopener noreferrer" className="block">
+    <a href={link} target="_blank" rel="noopener noreferrer" className="block shrink-0">
       <figure
         className={twMerge(
           "relative h-full w-72 cursor-pointer overflow-hidden rounded-xl border p-4",
           "border-white/10 bg-gradient-to-r from-slate-800 to-slate-700",
-          "hover:from-orange-900/50 hover:to-slate-700 hover-animation"
+          "hover:from-orange-900/50 hover:to-slate-700 transition-colors duration-300"
         )}
       >
         <div className="flex flex-row items-center gap-2">
@@ -70,7 +70,7 @@ const NewsCard = ({ title, link, pubDate, source, icon, description }) => {
 const LoadingCard = () => (
   <figure
     className={twMerge(
-      "relative h-full w-72 cursor-pointer overflow-hidden rounded-xl border p-4",
+      "relative h-full w-72 shrink-0 cursor-pointer overflow-hidden rounded-xl border p-4",
       "border-white/10 bg-gradient-to-r from-slate-800 to-slate-700 animate-pulse"
     )}
   >
@@ -143,14 +143,14 @@ export default function Veille() {
 
   return (
     <section id="veille" className="py-16 px-6">
-      <h2 className="text-3xl font-bold text-orange-400 text-center">
-        📰 Veille Technologique
-      </h2>
-      <p className="mt-2 text-center text-slate-400">
-        Flux RSS en direct de IT-Connect et Korben
-      </p>
+      <div className="text-center mb-12">
+        <h2 className="section-title">📰 Veille Technologique</h2>
+        <p className="mt-6 text-slate-400 max-w-2xl mx-auto">
+          Flux RSS en direct de IT-Connect et Korben
+        </p>
+      </div>
 
-      <div className="relative flex flex-col items-center justify-center w-full mt-12 overflow-hidden gap-4">
+      <div className="relative flex flex-col items-center justify-center w-full overflow-hidden gap-4">
         {loading ? (
           <>
             <Marquee pauseOnHover className="[--duration:25s]">
@@ -190,8 +190,8 @@ export default function Veille() {
         )}
 
         {/* Dégradés sur les côtés pour l'effet de fondu */}
-        <div className="absolute inset-y-0 left-0 w-1/6 pointer-events-none bg-gradient-to-r from-slate-950"></div>
-        <div className="absolute inset-y-0 right-0 w-1/6 pointer-events-none bg-gradient-to-l from-slate-950"></div>
+        <div className="absolute inset-y-0 left-0 w-1/6 pointer-events-none bg-gradient-to-r from-slate-900"></div>
+        <div className="absolute inset-y-0 right-0 w-1/6 pointer-events-none bg-gradient-to-l from-slate-900"></div>
       </div>
     </section>
   );

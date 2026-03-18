@@ -84,7 +84,7 @@ const Parcours = () => {
                 À la recherche d&apos;une alternance
               </p>
               <p className="text-slate-400 text-sm">
-                Disponible pour septembre 2025
+                Disponible pour mars 2026
               </p>
             </div>
             <a href="#contact" className="btn-primary ml-4">

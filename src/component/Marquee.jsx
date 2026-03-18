@@ -17,7 +17,7 @@ const Marquee = ({
     >
       <div
         className={twMerge(
-          "flex shrink-0 justify-around gap-[--gap] min-w-full animate-marquee",
+          "flex shrink-0 justify-around gap-[var(--gap)] min-w-full animate-marquee",
           pauseOnHover && "hover:[animation-play-state:paused]",
           reverse && "animate-marquee-reverse"
         )}
@@ -26,7 +26,7 @@ const Marquee = ({
       </div>
       <div
         className={twMerge(
-          "flex shrink-0 justify-around gap-[--gap] min-w-full animate-marquee",
+          "flex shrink-0 justify-around gap-[var(--gap)] min-w-full animate-marquee",
           pauseOnHover && "hover:[animation-play-state:paused]",
           reverse && "animate-marquee-reverse"
         )}
