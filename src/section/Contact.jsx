@@ -1,7 +1,16 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { contactInfo } from "../constants";
 
-// Composant pour les informations de contact
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.1, ease: "easeOut" },
+  }),
+};
+
 const ContactInfo = ({ icon, label, value, href }) => (
   <a
     href={href}
@@ -20,7 +29,6 @@ const ContactInfo = ({ icon, label, value, href }) => (
   </a>
 );
 
-// Composant pour les champs de formulaire
 const FormField = ({
   label,
   id,
@@ -76,11 +84,10 @@ const Contact = () => {
       } else {
         setSubmitStatus("error");
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
-      // Reset du statut après 3 secondes
       setTimeout(() => setSubmitStatus(null), 3000);
     }
   };
@@ -88,8 +95,13 @@ const Contact = () => {
   return (
     <section id="contact" className="py-16 px-6">
       <div className="max-w-5xl mx-auto">
-        {/* En-tête */}
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+        >
           <h2 className="text-3xl font-bold text-orange-400">
             📬 Contactez-moi
           </h2>
@@ -97,11 +109,16 @@ const Contact = () => {
             Que ce soit pour un projet web, une collaboration ou une opportunité
             d'alternance, n'hésitez pas à me contacter.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {/* Colonne gauche - Informations de contact */}
-          <div className="space-y-6">
+          <motion.div
+            className="space-y-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
             <h3 className="text-xl font-semibold text-white mb-4">
               Mes coordonnées
             </h3>
@@ -112,7 +129,6 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Message supplémentaire */}
             <div className="mt-8 p-6 rounded-xl bg-gradient-to-br from-orange-900/20 to-slate-800/50 border border-orange-400/20">
               <p className="text-slate-300 text-sm leading-relaxed">
                 💡 <strong className="text-orange-400">Disponibilité :</strong>{" "}
@@ -120,10 +136,16 @@ const Contact = () => {
                 développement web. Je réponds généralement sous 24-48h.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Colonne droite - Formulaire */}
-          <div className="p-6 rounded-2xl border border-white/10 bg-white/5">
+          <motion.div
+            className="p-6 rounded-2xl border border-white/10 bg-white/5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+            custom={1}
+          >
             <h3 className="text-xl font-semibold text-white mb-6">
               Envoyez-moi un message
             </h3>
@@ -157,7 +179,6 @@ const Contact = () => {
                 rows={5}
               />
 
-              {/* Bouton d'envoi */}
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -193,20 +214,27 @@ const Contact = () => {
                 )}
               </button>
 
-              {/* Messages de statut */}
               {submitStatus === "success" && (
-                <div className="p-4 rounded-xl bg-green-900/30 border border-green-500/30 text-green-400 text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-xl bg-green-900/30 border border-green-500/30 text-green-400 text-center"
+                >
                   ✅ Message envoyé avec succès ! Je vous répondrai rapidement.
-                </div>
+                </motion.div>
               )}
 
               {submitStatus === "error" && (
-                <div className="p-4 rounded-xl bg-red-900/30 border border-red-500/30 text-red-400 text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 rounded-xl bg-red-900/30 border border-red-500/30 text-red-400 text-center"
+                >
                   ❌ Une erreur est survenue. Veuillez réessayer.
-                </div>
+                </motion.div>
               )}
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

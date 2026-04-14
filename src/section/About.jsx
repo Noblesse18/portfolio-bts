@@ -1,30 +1,64 @@
+import { motion } from "framer-motion";
+import { useCountUp } from "../hooks/useCountUp";
+
+const STATS = [
+  { value: 2, label: "Années BTS" },
+  { value: 5, label: "Projets", suffix: "+" },
+  { value: 2, label: "Stages" },
+];
+
+const StatCard = ({ value, label, suffix = "" }) => {
+  const { count, ref } = useCountUp(value, 1500);
+  return (
+    <div ref={ref} className="text-center p-4 rounded-xl glass">
+      <div className="text-3xl font-bold text-orange-400">
+        {count}{suffix}
+      </div>
+      <div className="text-sm text-slate-400">{label}</div>
+    </div>
+  );
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.15, ease: "easeOut" },
+  }),
+};
+
 const About = () => {
   return (
     <section id="about" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* En-tête de section */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+        >
           <h2 className="section-title">👤 À propos de moi</h2>
           <p className="mt-6 text-slate-400 max-w-2xl mx-auto">
             Découvrez mon parcours, ma formation et mes aspirations
             professionnelles.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Présentation personnelle */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Avatar / Illustration */}
-          <div className="flex justify-center">
+          <motion.div
+            className="flex justify-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={fadeUp}
+          >
             <div className="relative">
-              {/* Cercle décoratif */}
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-transparent rounded-full blur-3xl" />
-
-              {/* Avatar placeholder */}
               <div className="relative w-64 h-64 rounded-full glass flex items-center justify-center glow-orange">
                 <span className="text-8xl">👨‍💻</span>
               </div>
-
-              {/* Badges flottants */}
               <div className="absolute -top-4 -right-4 px-4 py-2 rounded-full glass text-sm animate-float">
                 💻 Full Stack
               </div>
@@ -35,48 +69,69 @@ const About = () => {
                 🎓 BTS SIO
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Texte de présentation */}
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-white">
+            <motion.h3
+              className="text-3xl font-bold text-white"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUp}
+            >
               Salut, moi c&apos;est{" "}
               <span className="text-orange-400">Narayanasamy</span> !
-            </h3>
+            </motion.h3>
 
-            <p className="text-lg text-slate-300 leading-relaxed">
+            <motion.p
+              className="text-lg text-slate-300 leading-relaxed"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUp}
+              custom={1}
+            >
               Étudiant passionné en BTS SIO option SLAM, je me spécialise dans
               le développement d&apos;applications web modernes. Mon objectif
               est de créer des solutions innovantes et performantes.
-            </p>
+            </motion.p>
 
-            <p className="text-slate-400 leading-relaxed">
+            <motion.p
+              className="text-slate-400 leading-relaxed"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUp}
+              custom={2}
+            >
               Actuellement à la recherche d&apos;une alternance, je suis motivé
               à apprendre et à contribuer au sein d&apos;une équipe dynamique.
               Ma curiosité et ma rigueur me poussent à toujours améliorer mes
               compétences.
-            </p>
+            </motion.p>
 
-            {/* Stats rapides */}
-            <div className="grid grid-cols-3 gap-4 pt-6">
-              <div className="text-center p-4 rounded-xl glass">
-                <div className="text-3xl font-bold text-orange-400">2</div>
-                <div className="text-sm text-slate-400">Années BTS</div>
-              </div>
-              <div className="text-center p-4 rounded-xl glass">
-                <div className="text-3xl font-bold text-orange-400">5+</div>
-                <div className="text-sm text-slate-400">Projets</div>
-              </div>
-              <div className="text-center p-4 rounded-xl glass">
-                <div className="text-3xl font-bold text-orange-400">2</div>
-                <div className="text-sm text-slate-400">Stages</div>
-              </div>
-            </div>
+            <motion.div
+              className="grid grid-cols-3 gap-4 pt-6"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUp}
+              custom={3}
+            >
+              {STATS.map((stat) => (
+                <StatCard key={stat.label} {...stat} />
+              ))}
+            </motion.div>
           </div>
         </div>
 
-        {/* Section BTS SIO */}
-        <div className="mt-20">
+        <motion.div
+          className="mt-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={fadeUp}
+        >
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold text-white mb-4">
               🎓 Qu&apos;est-ce que le BTS SIO ?
@@ -89,10 +144,14 @@ const About = () => {
             </p>
           </div>
 
-          {/* Cartes SISR / SLAM */}
           <div className="grid md:grid-cols-2 gap-8">
-            {/* SISR */}
-            <div className="card group hover:border-blue-500/30">
+            <motion.div
+              className="card group hover:border-blue-500/30"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUp}
+            >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
                   🌐
@@ -131,11 +190,16 @@ const About = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* SLAM */}
-            <div className="card group hover:border-orange-500/30 relative overflow-hidden">
-              {/* Badge "Mon option" */}
+            <motion.div
+              className="card group hover:border-orange-500/30 relative overflow-hidden"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUp}
+              custom={1}
+            >
               <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-xs font-semibold border border-orange-500/30">
                 ⭐ Mon option
               </div>
@@ -178,9 +242,9 @@ const About = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

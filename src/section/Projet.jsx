@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { projets } from "../constants";
 
-// Filtres disponibles
 const FILTERS = [
   { id: "all", label: "Tous", icon: "🎯" },
   { id: "web", label: "Web", icon: "🌐" },
@@ -9,31 +9,60 @@ const FILTERS = [
   { id: "other", label: "Autres", icon: "🔧" },
 ];
 
-// Carte de projet
-const ProjectCard = ({ projet }) => {
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
+  }),
+};
+
+function getPreviewUrl(projet) {
+  const url = projet.site || projet.demo;
+  if (!url) return null;
+  return `https://s0.wp.com/mshots/v1/${encodeURIComponent(url)}?w=640&h=400`;
+}
+
+const ProjectCard = ({ projet, index }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
+  const [imgError, setImgError] = useState(false);
+  const previewUrl = projet.image || getPreviewUrl(projet);
 
   return (
-    <div
+    <motion.div
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
       className="card group relative overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Image / Placeholder */}
       <div className="relative h-48 rounded-xl overflow-hidden mb-4 bg-gradient-to-br from-slate-800 to-slate-700">
-        {projet.image ? (
-          <img
-            src={projet.image}
-            alt={projet.titre}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
+        {previewUrl && !imgError ? (
+          <>
+            {!imgLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-8 h-8 border-2 border-orange-500/30 border-t-orange-500 rounded-full animate-spin" />
+              </div>
+            )}
+            <img
+              src={previewUrl}
+              alt={projet.titre}
+              onLoad={() => setImgLoaded(true)}
+              onError={() => setImgError(true)}
+              className={`w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110 ${imgLoaded ? "opacity-100" : "opacity-0"}`}
+            />
+          </>
         ) : (
           <div className="w-full h-full flex items-center justify-center">
             <span className="text-6xl opacity-50">{projet.icon || "💻"}</span>
           </div>
         )}
 
-        {/* Overlay au hover */}
         <div
           className={`absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent 
             flex items-end justify-center pb-4 transition-opacity duration-300
@@ -73,7 +102,6 @@ const ProjectCard = ({ projet }) => {
           </div>
         </div>
 
-        {/* Badge catégorie */}
         <div className="absolute top-3 right-3 px-3 py-1 rounded-full glass text-xs">
           {projet.categorie === "web" && "🌐 Web"}
           {projet.categorie === "mobile" && "📱 Mobile"}
@@ -81,7 +109,6 @@ const ProjectCard = ({ projet }) => {
         </div>
       </div>
 
-      {/* Contenu */}
       <h4 className="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
         {projet.titre}
       </h4>
@@ -90,7 +117,6 @@ const ProjectCard = ({ projet }) => {
         {projet.description}
       </p>
 
-      {/* Technologies */}
       <div className="flex flex-wrap gap-2">
         {projet.technologies?.map((tech) => (
           <span
@@ -101,14 +127,13 @@ const ProjectCard = ({ projet }) => {
           </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const Projet = () => {
   const [activeFilter, setActiveFilter] = useState("all");
 
-  // Filtrer les projets
   const filteredProjets =
     activeFilter === "all"
       ? projets
@@ -117,17 +142,27 @@ const Projet = () => {
   return (
     <section id="projets" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* En-tête */}
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+        >
           <h2 className="section-title">💼 Mes Projets</h2>
           <p className="mt-6 text-slate-400 max-w-2xl mx-auto">
             Découvrez les projets que j&apos;ai réalisés durant ma formation et
             mes expériences professionnelles.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Filtres */}
-        <div className="flex justify-center gap-2 mb-12 flex-wrap">
+        <motion.div
+          className="flex justify-center gap-2 mb-12 flex-wrap"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={fadeUp}
+        >
           {FILTERS.map((filter) => (
             <button
               key={filter.id}
@@ -143,15 +178,16 @@ const Projet = () => {
               {filter.label}
             </button>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Grille de projets */}
         {filteredProjets.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjets.map((projet) => (
-              <ProjectCard key={projet.titre} projet={projet} />
-            ))}
-          </div>
+          <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AnimatePresence mode="popLayout">
+              {filteredProjets.map((projet, index) => (
+                <ProjectCard key={projet.titre} projet={projet} index={index} />
+              ))}
+            </AnimatePresence>
+          </motion.div>
         ) : (
           <div className="text-center py-20">
             <span className="text-6xl mb-4 block">🔍</span>
@@ -161,8 +197,13 @@ const Projet = () => {
           </div>
         )}
 
-        {/* Message */}
-        <div className="mt-16 text-center">
+        <motion.div
+          className="mt-16 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={fadeUp}
+        >
           <div className="inline-block p-6 rounded-2xl glass">
             <p className="text-slate-300">
               🚀{" "}
@@ -173,7 +214,7 @@ const Projet = () => {
               passionnants !
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -15,27 +15,35 @@ export const skills = [
   { name: "HTML5", icon: "./assets/html5.svg", category: "frontend" },
   { name: "CSS3", icon: "./assets/css3.svg", category: "frontend" },
   { name: "JavaScript", icon: "./assets/javascript.svg", category: "frontend" },
-  { name: "React", icon: "./assets/react.svg", category: "frontend" },
-  {
-    name: "Tailwind CSS",
-    icon: "./assets/tailwindcss.svg",
-    category: "frontend",
-  },
-  { name: "Next.js", icon: "./assets/next-js-svgrepo-com.svg", category: "frontend" },
   { name: "TypeScript", icon: "./assets/typescript-official-svgrepo-com.svg", category: "frontend" },
+  { name: "React", icon: "./assets/react.svg", category: "frontend" },
+  { name: "Next.js", icon: "./assets/next-js-svgrepo-com.svg", category: "frontend" },
+  { name: "Tailwind CSS", icon: "./assets/tailwindcss.svg", category: "frontend" },
+  { name: "Framer Motion", icon: "./assets/framer.svg", category: "frontend" },
+  { name: "Zustand", icon: "./assets/zustand.svg", category: "frontend" },
   { name: "Flutter", icon: "./assets/flutter-svgrepo-com.svg", category: "frontend" },
 
   // Mobile
   { name: "React Native", icon: "./assets/react.svg", category: "frontend" },
   { name: "Expo", icon: "./assets/expo.svg", category: "frontend" },
+  { name: "NativeWind", icon: "./assets/nativewind.svg", category: "frontend" },
+  { name: "Axios", icon: "./assets/axios.svg", category: "frontend" },
 
   // Backend
+  { name: "Python", icon: "./assets/python.svg", category: "backend" },
   { name: "PHP", icon: "./assets/php.svg", category: "backend" },
   { name: "Node.js", icon: "./assets/nodejs.svg", category: "backend" },
   { name: "Express.js", icon: "./assets/nodejs.svg", category: "backend" },
   { name: "FastAPI", icon: "./assets/fastapi-svgrepo-com.svg", category: "backend" },
   { name: "MySQL", icon: "./assets/mysql.svg", category: "backend" },
   { name: "MongoDB", icon: "./assets/mongodb.svg", category: "backend" },
+  { name: "ClickHouse", icon: "./assets/clickhouse.svg", category: "backend" },
+  { name: "Drizzle ORM", icon: "./assets/drizzle.svg", category: "backend" },
+  { name: "WebSocket", icon: "./assets/websocket.svg", category: "backend" },
+  { name: "JWT", icon: "./assets/jwt.svg", category: "backend" },
+  { name: "Stripe", icon: "./assets/stripe.svg", category: "backend" },
+  { name: "Swagger", icon: "./assets/swagger.svg", category: "backend" },
+  { name: "AppWrite", icon: "./assets/appwrite.svg", category: "backend" },
 
   // Outils & DevOps
   { name: "Git", icon: "./assets/git.svg", category: "tools" },
@@ -47,6 +55,7 @@ export const skills = [
   { name: "Kubernetes", icon: "./assets/kubernetes-svgrepo-com.svg", category: "tools" },
   { name: "Vite", icon: "./assets/vitejs.svg", category: "tools" },
   { name: "Ansible", icon: "./assets/ansible.svg", category: "tools" },
+  { name: "Scaleway", icon: "./assets/scaleway.svg", category: "tools" },
   { name: "Azure", icon: "./assets/azure.svg", category: "tools" },
   { name: "AWS", icon: "./assets/aws.svg", category: "tools" },
 ];
@@ -161,6 +170,7 @@ export const projets = [
       "Swagger",
     ],
     github: "https://github.com/Noblesse18/evencia",
+    site: "https://evencia-v2.vercel.app/",
   },
   {
     titre: "Evencia - App Mobile",

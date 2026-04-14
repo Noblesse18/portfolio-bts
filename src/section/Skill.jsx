@@ -1,18 +1,39 @@
+import { motion } from "framer-motion";
 import { skills } from "../constants";
 
-// Composant pour une carte de compétence
-const SkillCard = ({ name, icon }) => (
-  <div className="card group flex flex-col items-center p-6 hover:glow-orange">
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
+  }),
+};
+
+const SkillCard = ({ name, icon, index }) => (
+  <motion.div
+    className="card group flex flex-col items-center p-6 hover:glow-orange"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.2 }}
+    variants={fadeUp}
+    custom={index % 4}
+  >
     <div className="w-16 h-16 rounded-xl bg-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
       <img src={icon} alt={name} className="w-10 h-10" />
     </div>
     <h4 className="font-semibold text-white text-center">{name}</h4>
-  </div>
+  </motion.div>
 );
 
-// Composant pour une catégorie de compétences
 const SkillCategory = ({ title, icon, skills: categorySkills, color }) => (
-  <div className="space-y-6">
+  <motion.div
+    className="space-y-6"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.2 }}
+    variants={fadeUp}
+  >
     <div className="flex items-center gap-3">
       <span className="text-2xl">{icon}</span>
       <h3 className="text-xl font-bold text-white">{title}</h3>
@@ -21,15 +42,14 @@ const SkillCategory = ({ title, icon, skills: categorySkills, color }) => (
       />
     </div>
     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-      {categorySkills.map((skill) => (
-        <SkillCard key={skill.name} {...skill} />
+      {categorySkills.map((skill, index) => (
+        <SkillCard key={skill.name} {...skill} index={index} />
       ))}
     </div>
-  </div>
+  </motion.div>
 );
 
 const Skill = () => {
-  // Grouper les skills par catégorie
   const frontendSkills = skills.filter((s) => s.category === "frontend");
   const backendSkills = skills.filter((s) => s.category === "backend");
   const toolsSkills = skills.filter((s) => s.category === "tools");
@@ -40,16 +60,20 @@ const Skill = () => {
   return (
     <section id="skills" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        {/* En-tête */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+        >
           <h2 className="section-title">⚡ Mes Compétences</h2>
           <p className="mt-6 text-slate-400 max-w-2xl mx-auto">
             Toutes ces connaissances ont été acquises durant mes études en BTS
             SIO, mes projets personnels et mes expériences professionnelles.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Catégories de compétences */}
         <div className="space-y-12">
           {frontendSkills.length > 0 && (
             <SkillCategory
@@ -88,8 +112,13 @@ const Skill = () => {
           )}
         </div>
 
-        {/* Message motivationnel */}
-        <div className="mt-16 text-center">
+        <motion.div
+          className="mt-16 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={fadeUp}
+        >
           <div className="inline-block p-6 rounded-2xl glass">
             <p className="text-slate-300">
               💡{" "}
@@ -100,7 +129,7 @@ const Skill = () => {
               d&apos;améliorer mes compétences chaque jour.
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

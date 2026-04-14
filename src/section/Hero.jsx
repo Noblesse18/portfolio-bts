@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import FlowField from "../component/FlowField";
 
-// Textes pour l'effet de typing
 const ROLES = [
   "Développeur Web",
   "Étudiant BTS SIO",
@@ -13,7 +14,6 @@ const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
-  // Effet de machine à écrire
   useEffect(() => {
     const role = ROLES[currentRole];
     const timeout = setTimeout(
@@ -52,79 +52,74 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-float" />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-orange-600/10 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "-3s" }}
-        />
+      {/* Flow Field Background */}
+      <FlowField />
 
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                             linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: "50px 50px",
-          }}
-        />
-      </div>
+      {/* Subtle gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/60 pointer-events-none" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8 animate-fade-in-up">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
+        >
           <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
           <span className="text-sm text-slate-300">
             Disponible pour une alternance
           </span>
-        </div>
+        </motion.div>
 
-        {/* Greeting */}
-        <p
-          className="text-xl text-slate-400 mb-4 animate-fade-in-up"
-          style={{ animationDelay: "0.1s" }}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-xl text-slate-400 mb-4"
         >
           👋 Bonjour, je suis
-        </p>
+        </motion.p>
 
-        {/* Name */}
-        <h1
-          className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up"
-          style={{ animationDelay: "0.2s" }}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-5xl md:text-7xl font-bold mb-6"
         >
           <span className="text-white">Narayanasamy</span>
           <br />
           <span className="gradient-text">COMARAVEL</span>
-        </h1>
+        </motion.h1>
 
-        {/* Role with typing effect */}
-        <div
-          className="h-12 flex items-center justify-center mb-8 animate-fade-in-up"
-          style={{ animationDelay: "0.3s" }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="h-12 flex items-center justify-center mb-8"
         >
           <span className="text-2xl md:text-3xl text-slate-300">
             {displayText}
             <span className="animate-pulse text-orange-500">|</span>
           </span>
-        </div>
+        </motion.div>
 
-        {/* Description */}
-        <p
-          className="text-lg text-slate-400 max-w-2xl mx-auto mb-10 animate-fade-in-up"
-          style={{ animationDelay: "0.4s" }}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-lg text-slate-400 max-w-2xl mx-auto mb-10"
         >
           Étudiant en BTS SIO option SLAM, passionné par le développement web et
           les nouvelles technologies. Je crée des applications modernes et
           performantes.
-        </p>
+        </motion.p>
 
-        {/* CTA Buttons */}
-        <div
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
-          style={{ animationDelay: "0.5s" }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <button onClick={scrollToContact} className="btn-primary">
             Me contacter
@@ -132,12 +127,13 @@ const Hero = () => {
           <button onClick={scrollToAbout} className="btn-outline">
             En savoir plus
           </button>
-        </div>
+        </motion.div>
 
-        {/* Scroll indicator */}
-        <div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-in-up"
-          style={{ animationDelay: "0.8s" }}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2"
         >
           <div className="flex flex-col items-center gap-2 text-slate-500">
             <span className="text-xs uppercase tracking-widest">Scroll</span>
@@ -145,7 +141,7 @@ const Hero = () => {
               <div className="w-1 h-2 bg-orange-500 rounded-full animate-bounce" />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

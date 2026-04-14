@@ -1,23 +1,35 @@
+import { motion } from "framer-motion";
 import { jobs } from "../constants";
 
-// Composant Timeline Item
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.15, ease: "easeOut" },
+  }),
+};
+
 const TimelineItem = ({ job, index, isLast }) => (
-  <div className="relative flex gap-6 pb-12">
-    {/* Ligne verticale */}
+  <motion.div
+    className="relative flex gap-6 pb-12"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.3 }}
+    variants={fadeUp}
+    custom={index}
+  >
     {!isLast && (
       <div className="absolute left-[19px] top-12 w-0.5 h-full bg-gradient-to-b from-orange-500/50 to-transparent" />
     )}
 
-    {/* Point de la timeline */}
     <div className="relative z-10 flex-shrink-0">
       <div className="w-10 h-10 rounded-full bg-orange-500/20 border-2 border-orange-500 flex items-center justify-center">
         <span className="text-lg">{job.icon || "💼"}</span>
       </div>
     </div>
 
-    {/* Contenu */}
     <div className="flex-1 card hover:glow-orange group">
-      {/* En-tête */}
       <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
         <div>
           <h4 className="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">
@@ -30,10 +42,8 @@ const TimelineItem = ({ job, index, isLast }) => (
         </span>
       </div>
 
-      {/* Description */}
       <p className="text-slate-400 leading-relaxed mb-4">{job.description}</p>
 
-      {/* Technologies utilisées */}
       {job.technologies && (
         <div className="flex flex-wrap gap-2">
           {job.technologies.map((tech) => (
@@ -47,23 +57,27 @@ const TimelineItem = ({ job, index, isLast }) => (
         </div>
       )}
     </div>
-  </div>
+  </motion.div>
 );
 
 const Parcours = () => {
   return (
     <section id="parcours" className="py-20 px-6">
       <div className="max-w-4xl mx-auto">
-        {/* En-tête */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+        >
           <h2 className="section-title">📚 Mon Parcours</h2>
           <p className="mt-6 text-slate-400 max-w-2xl mx-auto">
             Mes expériences professionnelles et stages qui m&apos;ont permis de
             développer mes compétences en entreprise.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Timeline */}
         <div className="relative">
           {jobs.map((job, index) => (
             <TimelineItem
@@ -75,8 +89,13 @@ const Parcours = () => {
           ))}
         </div>
 
-        {/* Call to action */}
-        <div className="mt-12 text-center">
+        <motion.div
+          className="mt-12 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={fadeUp}
+        >
           <div className="inline-flex items-center gap-4 p-6 rounded-2xl glass">
             <span className="text-4xl">🎯</span>
             <div className="text-left">
@@ -91,7 +110,7 @@ const Parcours = () => {
               Me contacter
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
