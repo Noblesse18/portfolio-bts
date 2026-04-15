@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projets } from "../constants";
+import Particles from "../component/Particles";
 
 const FILTERS = [
   { id: "all", label: "Tous", icon: "🎯" },
@@ -140,8 +141,9 @@ const Projet = () => {
       : projets.filter((p) => p.categorie === activeFilter);
 
   return (
-    <section id="projets" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="projets" className="relative py-20 px-6">
+      <Particles count={35} speed={0.3} connectDistance={120} opacity={0.35} />
+      <div className="relative max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-12"
           initial="hidden"

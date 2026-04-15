@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { skills } from "../constants";
+import Particles from "../component/Particles";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -58,8 +59,9 @@ const Skill = () => {
   );
 
   return (
-    <section id="skills" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="skills" className="relative py-20 px-6">
+      <Particles count={30} speed={0.2} connectDistance={100} opacity={0.3} />
+      <div className="relative max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
           initial="hidden"

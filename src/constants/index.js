@@ -56,8 +56,14 @@ export const skills = [
   { name: "Vite", icon: "./assets/vitejs.svg", category: "tools" },
   { name: "Ansible", icon: "./assets/ansible.svg", category: "tools" },
   { name: "Scaleway", icon: "./assets/scaleway.svg", category: "tools" },
+  { name: "Vercel", icon: "./assets/vercel.svg", category: "tools" },
+  { name: "Render", icon: "./assets/render.svg", category: "tools" },
   { name: "Azure", icon: "./assets/azure.svg", category: "tools" },
   { name: "AWS", icon: "./assets/aws.svg", category: "tools" },
+  { name: "n8n", icon: "./assets/n8n.svg", category: "tools" },
+  { name: "Supabase", icon: "./assets/supabase.svg", category: "backend" },
+  { name: "Flask", icon: "./assets/flask.svg", category: "backend" },
+  { name: "SQLite", icon: "./assets/sqlite.svg", category: "backend" },
 ];
 
 // Alias pour la compatibilité
@@ -65,6 +71,24 @@ export const skill = skills;
 
 // ===== EXPÉRIENCES PROFESSIONNELLES =====
 export const jobs = [
+  {
+    poste: "Développeur Web Freelance",
+    entreprise: "Bergens",
+    duree: "10 février - 17 février 2026",
+    description:
+      "Développement d'un site d'administration et de soumission de commandes pour les produits MyCheckr. Backend Python/Flask, stockage PDF sur OneDrive, base de données MySQL/SQLite, migration Azure et déploiement sur VM Ubuntu (Scaleway).",
+    icon: "🛒",
+    technologies: [
+      "Python",
+      "Flask",
+      "MySQL",
+      "SQLite",
+      "Azure",
+      "OneDrive",
+      "Scaleway",
+      "Ubuntu",
+    ],
+  },
   {
     poste: "Stage 2ème année BTS SIO",
     entreprise: "Inside Runway",
@@ -171,6 +195,23 @@ export const projets = [
     ],
     github: "https://github.com/Noblesse18/evencia",
     site: "https://evencia-v2.vercel.app/",
+  },
+  {
+    titre: "Bergens - Admin & Commandes",
+    description:
+      "Site d'administration et de soumission de commandes pour les produits MyCheckr. Backend Python/Flask, stockage PDF sur OneDrive, migration Azure et déploiement sur VM Ubuntu (Scaleway).",
+    categorie: "web",
+    icon: "🛒",
+    technologies: [
+      "Python",
+      "Flask",
+      "MySQL",
+      "SQLite",
+      "Azure",
+      "OneDrive",
+      "Scaleway",
+    ],
+    site: "https://admin.bergens.fr/create_commande/",
   },
   {
     titre: "Evencia - App Mobile",

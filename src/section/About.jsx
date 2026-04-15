@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { useCountUp } from "../hooks/useCountUp";
+import Particles from "../component/Particles";
 
 const STATS = [
   { value: 2, label: "Années BTS" },
-  { value: 5, label: "Projets", suffix: "+" },
-  { value: 2, label: "Stages" },
+  { value: 6, label: "Projets", suffix: "+" },
+  { value: 3, label: "Stages" },
 ];
 
 const StatCard = ({ value, label, suffix = "" }) => {
@@ -30,8 +31,10 @@ const fadeUp = {
 
 const About = () => {
   return (
-    <section id="about" className="py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="about" className="relative py-20 px-6">
+      <Particles count={35} speed={0.25} connectDistance={130} opacity={0.35} />
+
+      <div className="relative max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
           initial="hidden"

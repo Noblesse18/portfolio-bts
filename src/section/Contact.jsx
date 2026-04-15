@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { contactInfo } from "../constants";
+import Particles from "../component/Particles";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -93,8 +94,9 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 px-6">
-      <div className="max-w-5xl mx-auto">
+    <section id="contact" className="relative py-16 px-6">
+      <Particles count={30} speed={0.2} connectDistance={110} opacity={0.3} />
+      <div className="relative max-w-5xl mx-auto">
         <motion.div
           className="text-center mb-12"
           initial="hidden"

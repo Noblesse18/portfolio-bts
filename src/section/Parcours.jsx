@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { jobs } from "../constants";
+import Particles from "../component/Particles";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -62,8 +63,9 @@ const TimelineItem = ({ job, index, isLast }) => (
 
 const Parcours = () => {
   return (
-    <section id="parcours" className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
+    <section id="parcours" className="relative py-20 px-6">
+      <Particles count={25} speed={0.15} connectDistance={140} opacity={0.3} />
+      <div className="relative max-w-4xl mx-auto">
         <motion.div
           className="text-center mb-16"
           initial="hidden"

@@ -149,7 +149,7 @@ export default function Veille() {
         >
           <h2 className="section-title">📰 Veille Technologique</h2>
           <p className="mt-6 text-slate-400 max-w-2xl mx-auto">
-            Flux RSS en direct de IT-Connect et Korben
+            Ma veille est axée sur <span className="text-orange-400 font-medium">la sécurité et les bonnes pratiques dans le développement web</span>, un enjeu central dans chacun de mes projets. Je m&apos;appuie sur deux sources complémentaires : IT-Connect pour l&apos;aspect technique et cybersécurité, et Korben pour les tendances et la culture tech.
           </p>
         </motion.div>
 
