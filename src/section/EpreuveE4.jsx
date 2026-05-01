@@ -23,9 +23,9 @@ const EpreuveE4 = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
         >
-          <h2 className="section-title">📋 Épreuve E4</h2>
+          <h2 className="section-title">📋 Épreuve E5</h2>
           <p className="mt-6 text-slate-400 max-w-2xl mx-auto">
-            Tableau de synthèse de l&apos;épreuve E4 du BTS SIO SLAM,
+            Tableau de synthèse de l&apos;épreuve E5 du BTS SIO SLAM,
             récapitulant les situations professionnelles et compétences
             associées.
           </p>

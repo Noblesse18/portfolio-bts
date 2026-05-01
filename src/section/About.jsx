@@ -169,8 +169,8 @@ const About = () => {
 
               <p className="text-slate-400 mb-6">
                 Formation axée sur la conception, l&apos;installation,
-                l&apos;administration et la sécurisation des infrastructures
-                informatiques.
+                l&apos;administration et la sécurisation <span className="text-white"> des infrastructures
+                informatiques</span>.
               </p>
 
               <div className="space-y-2">
@@ -220,7 +220,7 @@ const About = () => {
               </div>
 
               <p className="text-slate-400 mb-6">
-                Formation orientée développement d&apos;applications web,
+                Formation orientée <span className="text-white">développement d&apos;applications web </span>,
                 mobiles et métiers, gestion de bases de données et maintenance
                 logicielle.
               </p>

@@ -18,8 +18,8 @@ function App() {
       <Skill />
       <Parcours />
       <Projet />
-      <EpreuveE4 />
       <Veille />
+      <EpreuveE4 />
       <Contact />
       <Footer />
     </main>

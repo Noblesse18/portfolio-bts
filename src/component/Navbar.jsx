@@ -6,8 +6,8 @@ const NAV_ITEMS = [
   { href: "#skills", label: "Compétences", icon: "⚡" },
   { href: "#parcours", label: "Parcours", icon: "📚" },
   { href: "#projets", label: "Projets", icon: "💼" },
-  { href: "#epreuve-e4", label: "Épreuve E4", mobileLabel: "E4", icon: "📋" },
   { href: "#veille", label: "Veille", icon: "📰" },
+  { href: "#epreuve-e4", label: "Épreuve E5", mobileLabel: "E5", icon: "📋" },
   { href: "#contact", label: "Contact", icon: "✉️" },
 ];
 
