@@ -197,10 +197,11 @@ export const projets = [
     missions: [
       "Amélioration et création de composants frontend (Next.js / TypeScript)",
       "Développement de fonctionnalités backend (FastAPI / MongoDB)",
-      "Intégration de WebSocket pour le temps réel",
+      { text: "Algorithme de détection de tendances pour la partie Post et Discovery", highlight: true },
+      { text: "Intégration de WebSocket pour le temps réel", highlight: true },
       "Travail avec Docker et Kubernetes pour le déploiement",
     ],
-    competencesTechniques: ["Next.js", "TypeScript", "FastAPI", "MongoDB", "Docker", "Kubernetes"],
+    competencesTechniques: ["Next.js", "TypeScript", "FastAPI", "MongoDB", "Docker", "Kubernetes", "Scaleway", "Redis", "ClickHouse"],
     softSkills: ["Travail en équipe", "Communication", "Montée en compétences rapide"],
   },
   {
@@ -226,8 +227,8 @@ export const projets = [
     github: "https://github.com/Noblesse18/evencia",
     site: "https://evencia-v2.vercel.app/",
     missions: [
-      "Conception de l'architecture fullstack (frontend + API REST)",
-      "Mise en place du système multi-rôles (participant, organisateur, admin)",
+      { text: "Conception de l'architecture fullstack (frontend + API REST)", highlight: true },
+      { text: "Mise en place du système multi-rôles (participant, organisateur, admin)", highlight: true },
       "Intégration du paiement en ligne avec Stripe",
       "Documentation de l'API avec Swagger",
     ],
@@ -253,8 +254,8 @@ export const projets = [
     missions: [
       "Développement du backend avec Python/Flask",
       "Intégration du stockage de PDF sur OneDrive",
-      "Migration de la base de données vers Azure",
-      "Déploiement sur VM Ubuntu (Scaleway) avec Nginx",
+      { text: "Migration de la base de données vers Azure", highlight: true },
+      { text: "Déploiement sur VM Ubuntu (Scaleway) avec Nginx", highlight: true },
     ],
     competencesTechniques: ["Python", "Flask", "MySQL", "Azure", "Déploiement Linux"],
     softSkills: ["Autonomie totale", "Relation client directe", "Gestion de projet"],

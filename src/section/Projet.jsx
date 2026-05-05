@@ -73,12 +73,18 @@ const ProjectModal = ({ projet, onClose }) => {
               Missions réalisées
             </h4>
             <ul className="space-y-2">
-              {projet.missions.map((mission, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
-                  <span className="text-orange-400 mt-0.5 flex-shrink-0">▸</span>
-                  {mission}
-                </li>
-              ))}
+              {projet.missions.map((mission, i) => {
+                const isHighlight = typeof mission === "object" && mission.highlight;
+                const text = typeof mission === "object" ? mission.text : mission;
+                return (
+                  <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
+                    <span className="text-orange-400 mt-0.5 flex-shrink-0">
+                      {isHighlight ? "★" : "▸"}
+                    </span>
+                    {text}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         )}
