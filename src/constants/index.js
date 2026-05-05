@@ -74,9 +74,11 @@ export const jobs = [
   {
     poste: "Développeur Web Freelance",
     entreprise: "Bergens",
+    domaine: "E-commerce / Distribution",
+    type: "Mission freelance",
     duree: "10 février - 17 février 2026",
     description:
-      "Développement d'un site d'administration et de soumission de commandes pour les produits MyCheckr. Backend Python/Flask, stockage PDF sur OneDrive, base de données MySQL/SQLite, migration Azure et déploiement sur VM Ubuntu (Scaleway).",
+      "Développement d'un site d'administration et de soumission de commandes pour les produits MyCheckr.",
     icon: "🛒",
     technologies: [
       "Python",
@@ -92,9 +94,11 @@ export const jobs = [
   {
     poste: "Stage 2ème année BTS SIO",
     entreprise: "Inside Runway",
+    domaine: "Mode / Tech — Plateforme de mise en relation stylistes-marques",
+    type: "Startup",
     duree: "15 décembre 2025 - 28 février 2026",
     description:
-      "Création et amélioration des composants du site web de mise en relation de Stylistes et Marques. Travail sur le frontend (Next.js) et backend (FastAPI) pour optimiser l'expérience utilisateur.",
+      "Contribution au développement du site web : amélioration des composants frontend et développement de fonctionnalités backend.",
     icon: "👔",
     technologies: [
       "Next.js",
@@ -115,9 +119,11 @@ export const jobs = [
   {
     poste: "Stage 1ère année BTS SIO",
     entreprise: "SAS Guerfi",
+    domaine: "Commerce et services",
+    type: "TPE",
     duree: "23 juin - 4 août 2025",
     description:
-      "Création d'une application mobile avec React Native/Expo permettant aux touristes de découvrir les musées à proximité de leur emplacement grâce à la géolocalisation.",
+      "Création d'une application mobile permettant aux touristes de découvrir les musées à proximité grâce à la géolocalisation.",
     icon: "📱",
     technologies: [
       "React Native",
@@ -140,6 +146,14 @@ export const projets = [
     technologies: ["React", "Tailwind CSS", "Vite", "JavaScript"],
     github: "https://github.com/Noblesse18/portfolio-bts",
     demo: "https://noblesse18.github.io/portfolio-bts/",
+    missions: [
+      "Conception du design responsive et de l'identité visuelle",
+      "Développement des animations avec Framer Motion",
+      "Intégration d'un flux RSS pour la veille technologique",
+      "Déploiement automatisé via GitHub Pages",
+    ],
+    competencesTechniques: ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+    softSkills: ["Créativité", "Autonomie", "Présentation de soi"],
   },
   {
     titre: "Application Musées",
@@ -149,6 +163,14 @@ export const projets = [
     icon: "🏛️",
     technologies: ["React Native", "Expo", "Maps API"],
     github: "https://github.com/Noblesse18/Museo",
+    missions: [
+      "Conception de l'architecture de l'application mobile",
+      "Intégration de l'API Google Maps pour la cartographie",
+      "Mise en place du système de géolocalisation temps réel",
+      "Gestion de l'authentification utilisateur avec AppWrite",
+    ],
+    competencesTechniques: ["React Native", "Expo", "API REST", "Géolocalisation"],
+    softSkills: ["Autonomie", "Adaptation (premier stage)", "Gestion du temps"],
   },
   {
     titre: "Site Inside Runway",
@@ -172,6 +194,14 @@ export const projets = [
       "ClickHouse",
     ],
     site: "https://inside-runway.com/",
+    missions: [
+      "Amélioration et création de composants frontend (Next.js / TypeScript)",
+      "Développement de fonctionnalités backend (FastAPI / MongoDB)",
+      "Intégration de WebSocket pour le temps réel",
+      "Travail avec Docker et Kubernetes pour le déploiement",
+    ],
+    competencesTechniques: ["Next.js", "TypeScript", "FastAPI", "MongoDB", "Docker", "Kubernetes"],
+    softSkills: ["Travail en équipe", "Communication", "Montée en compétences rapide"],
   },
   {
     titre: "Evencia - Site Web",
@@ -195,6 +225,14 @@ export const projets = [
     ],
     github: "https://github.com/Noblesse18/evencia",
     site: "https://evencia-v2.vercel.app/",
+    missions: [
+      "Conception de l'architecture fullstack (frontend + API REST)",
+      "Mise en place du système multi-rôles (participant, organisateur, admin)",
+      "Intégration du paiement en ligne avec Stripe",
+      "Documentation de l'API avec Swagger",
+    ],
+    competencesTechniques: ["Next.js", "Express.js", "MySQL", "Drizzle ORM", "JWT", "Stripe"],
+    softSkills: ["Planification", "Conception d'architecture", "Rigueur"],
   },
   {
     titre: "Bergens - Admin & Commandes",
@@ -212,6 +250,14 @@ export const projets = [
       "Scaleway",
     ],
     site: "https://admin.bergens.fr/create_commande/",
+    missions: [
+      "Développement du backend avec Python/Flask",
+      "Intégration du stockage de PDF sur OneDrive",
+      "Migration de la base de données vers Azure",
+      "Déploiement sur VM Ubuntu (Scaleway) avec Nginx",
+    ],
+    competencesTechniques: ["Python", "Flask", "MySQL", "Azure", "Déploiement Linux"],
+    softSkills: ["Autonomie totale", "Relation client directe", "Gestion de projet"],
   },
   {
     titre: "Evencia - App Mobile",
@@ -228,6 +274,14 @@ export const projets = [
       "AsyncStorage",
     ],
     github: "https://github.com/Noblesse18/evencia",
+    missions: [
+      "Développement de l'application mobile connectée à l'API existante",
+      "Gestion de l'authentification mobile avec AsyncStorage",
+      "Création de l'interface avec NativeWind (Tailwind pour React Native)",
+      "Navigation multi-écrans avec React Navigation",
+    ],
+    competencesTechniques: ["React Native", "Expo", "NativeWind", "AsyncStorage"],
+    softSkills: ["Réutilisation d'API existante", "Cohérence UX cross-platform"],
   },
 ];
 

@@ -149,9 +149,48 @@ export default function Veille() {
         >
           <h2 className="section-title">📰 Veille Technologique</h2>
           <p className="mt-6 text-slate-400 max-w-2xl mx-auto">
-            Ma veille est axée sur <span className="text-orange-400 font-medium">la sécurité et les bonnes pratiques dans le développement web</span>, un enjeu central dans chacun de mes projets. Je m&apos;appuie sur deux sources complémentaires : IT-Connect pour l&apos;aspect technique et cybersécurité, et Korben pour les tendances et la culture tech.
+            Ma veille est axée sur <span className="text-orange-400 font-medium">la sécurité et les bonnes pratiques dans le développement web</span>, un enjeu central dans chacun de mes projets.
           </p>
         </motion.div>
+
+        <motion.div
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+        >
+          <div className="card text-center p-5">
+            <span className="text-2xl mb-2 block">📡</span>
+            <h4 className="text-sm font-semibold text-white mb-1">Flux RSS</h4>
+            <p className="text-xs text-slate-400">IT-Connect &amp; Korben agrégés en temps réel</p>
+          </div>
+          <div className="card text-center p-5">
+            <span className="text-2xl mb-2 block">🐙</span>
+            <h4 className="text-sm font-semibold text-white mb-1">GitHub Trending</h4>
+            <p className="text-xs text-slate-400">Suivi des repos et technologies émergentes</p>
+          </div>
+          <div className="card text-center p-5">
+            <span className="text-2xl mb-2 block">🔒</span>
+            <h4 className="text-sm font-semibold text-white mb-1">Sujets suivis</h4>
+            <p className="text-xs text-slate-400">Sécurité web, frameworks JS, DevOps, IA</p>
+          </div>
+          <div className="card text-center p-5">
+            <span className="text-2xl mb-2 block">📅</span>
+            <h4 className="text-sm font-semibold text-white mb-1">Fréquence</h4>
+            <p className="text-xs text-slate-400">Consultation quotidienne des sources</p>
+          </div>
+        </motion.div>
+
+        <motion.h3
+          className="text-lg font-semibold text-white mb-6 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          variants={fadeUp}
+        >
+          Derniers articles de ma veille
+        </motion.h3>
 
         {loading ? (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">

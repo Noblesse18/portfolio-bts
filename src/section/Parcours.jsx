@@ -37,6 +37,18 @@ const TimelineItem = ({ job, index, isLast }) => (
             {job.poste}
           </h4>
           <p className="text-orange-400 font-medium">{job.entreprise}</p>
+          <div className="flex flex-wrap items-center gap-2 mt-1.5">
+            {job.type && (
+              <span className="px-2.5 py-0.5 text-xs rounded-full bg-orange-500/10 text-orange-300 border border-orange-500/20">
+                {job.type}
+              </span>
+            )}
+            {job.domaine && (
+              <span className="px-2.5 py-0.5 text-xs rounded-full bg-white/5 text-slate-400 border border-white/10">
+                {job.domaine}
+              </span>
+            )}
+          </div>
         </div>
         <span className="px-4 py-1.5 rounded-full glass text-sm text-slate-300">
           📅 {job.duree}
