@@ -10,6 +10,8 @@ const fadeUp = {
   },
 };
 
+const pdfUrl = `${import.meta.env.BASE_URL}e4/Tableau-synthese-comaravel-4.pdf`;
+
 const EpreuveE4 = () => {
   const [showPdf, setShowPdf] = useState(false);
 
@@ -58,7 +60,7 @@ const EpreuveE4 = () => {
             >
               <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
               <motion.div
-                className="relative max-w-5xl w-full max-h-[90vh] overflow-auto rounded-2xl glass-strong p-2"
+                className="relative max-w-[95vw] w-full max-h-[95vh] overflow-auto rounded-2xl glass-strong p-2"
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
@@ -71,10 +73,10 @@ const EpreuveE4 = () => {
                 >
                   ✕
                 </button>
-                <embed
-                  src="./e4/Tableau-synthese-comaravel.pdf"
-                  type="application/pdf"
-                  className="w-full h-[80vh] rounded-xl"
+                <iframe
+                  src={pdfUrl}
+                  title="Tableau de synthèse"
+                  className="w-full h-[90vh] rounded-xl"
                 />
               </motion.div>
             </motion.div>
